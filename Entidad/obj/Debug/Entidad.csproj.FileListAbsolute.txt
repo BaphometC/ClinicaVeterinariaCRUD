@@ -1,0 +1,12 @@
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\Entidad.dll.config
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\Entidad.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\Entidad.pdb
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\EntityFramework.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\EntityFramework.xml
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\obj\Debug\Entidad.csproj.AssemblyReference.cache
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\obj\Debug\Entidad.csproj.CopyComplete
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\obj\Debug\Entidad.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Entidad\obj\Debug\Entidad.pdb

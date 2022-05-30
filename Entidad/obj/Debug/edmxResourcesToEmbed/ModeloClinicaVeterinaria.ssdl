@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClinicaVeterinariaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IdCita" />
+    </Key>
+    <Property Name="IdCita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDoctor" Type="int" Nullable="false" />
+    <Property Name="IdMascota" Type="int" Nullable="false" />
+    <Property Name="IdRecepcionista" Type="int" Nullable="false" />
+    <Property Name="IdHistorial" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrecioCita" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="IdDoctor" />
+    </Key>
+    <Property Name="IdDoctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Especialidad" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Duenio">
+    <Key>
+      <PropertyRef Name="IdDuenio" />
+    </Key>
+    <Property Name="IdDuenio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialCitas">
+    <Key>
+      <PropertyRef Name="IdHistorial" />
+    </Key>
+    <Property Name="IdHistorial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMes" Type="int" Nullable="false" />
+    <Property Name="CitasProgramadas" Type="int" Nullable="false" />
+    <Property Name="CitasRealizadas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mascota">
+    <Key>
+      <PropertyRef Name="IdMascota" />
+    </Key>
+    <Property Name="IdMascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Edad" Type="int" Nullable="false" />
+    <Property Name="Especie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Raza" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdDuenio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mes">
+    <Key>
+      <PropertyRef Name="IdMes" />
+    </Key>
+    <Property Name="IdMes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreMes" Type="int" Nullable="false" />
+    <Property Name="Anio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recepcionista">
+    <Key>
+      <PropertyRef Name="IdRecepcionista" />
+    </Key>
+    <Property Name="IdRecepcionista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receta">
+    <Key>
+      <PropertyRef Name="IdReceta" />
+    </Key>
+    <Property Name="IdReceta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_Medicamento" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Diagnostico" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Tratamiento" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DuracionTratamiento" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="DuracionMedicamento" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IdCita" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_cita">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="1" />
+    <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IdCita" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="IdCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_doctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="IdDoctor" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdDoctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_duenio">
+    <End Role="Duenio" Type="Self.Duenio" Multiplicity="1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Duenio">
+        <PropertyRef Name="IdDuenio" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="IdDuenio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_historial">
+    <End Role="HistorialCitas" Type="Self.HistorialCitas" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HistorialCitas">
+        <PropertyRef Name="IdHistorial" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdHistorial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_mascota">
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascota">
+        <PropertyRef Name="IdMascota" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdMascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_mes">
+    <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+    <End Role="HistorialCitas" Type="Self.HistorialCitas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mes">
+        <PropertyRef Name="IdMes" />
+      </Principal>
+      <Dependent Role="HistorialCitas">
+        <PropertyRef Name="IdMes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_recepcionista">
+    <End Role="Recepcionista" Type="Self.Recepcionista" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recepcionista">
+        <PropertyRef Name="IdRecepcionista" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdRecepcionista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClinicaVeterinariaDBModelStoreContainer">
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Duenio" EntityType="Self.Duenio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialCitas" EntityType="Self.HistorialCitas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mes" EntityType="Self.Mes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recepcionista" EntityType="Self.Recepcionista" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receta" EntityType="Self.Receta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_cita" Association="Self.fk_cita">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="Receta" EntitySet="Receta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_doctor" Association="Self.fk_doctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_duenio" Association="Self.fk_duenio">
+      <End Role="Duenio" EntitySet="Duenio" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_historial" Association="Self.fk_historial">
+      <End Role="HistorialCitas" EntitySet="HistorialCitas" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_mascota" Association="Self.fk_mascota">
+      <End Role="Mascota" EntitySet="Mascota" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_mes" Association="Self.fk_mes">
+      <End Role="Mes" EntitySet="Mes" />
+      <End Role="HistorialCitas" EntitySet="HistorialCitas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_recepcionista" Association="Self.fk_recepcionista">
+      <End Role="Recepcionista" EntitySet="Recepcionista" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

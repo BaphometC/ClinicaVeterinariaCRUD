@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClinicaVeterinariaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IdCita" />
+    </Key>
+    <Property Name="IdCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdDoctor" Type="Int32" Nullable="false" />
+    <Property Name="IdMascota" Type="Int32" Nullable="false" />
+    <Property Name="IdRecepcionista" Type="Int32" Nullable="false" />
+    <Property Name="IdHistorial" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrecioCita" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Receta" Relationship="Self.fk_cita" FromRole="Cita" ToRole="Receta" />
+    <NavigationProperty Name="Doctor" Relationship="Self.fk_doctor" FromRole="Cita" ToRole="Doctor" />
+    <NavigationProperty Name="HistorialCitas" Relationship="Self.fk_historial" FromRole="Cita" ToRole="HistorialCitas" />
+    <NavigationProperty Name="Mascota" Relationship="Self.fk_mascota" FromRole="Cita" ToRole="Mascota" />
+    <NavigationProperty Name="Recepcionista" Relationship="Self.fk_recepcionista" FromRole="Cita" ToRole="Recepcionista" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="IdDoctor" />
+    </Key>
+    <Property Name="IdDoctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cita" Relationship="Self.fk_doctor" FromRole="Doctor" ToRole="Cita" />
+  </EntityType>
+  <EntityType Name="Duenio">
+    <Key>
+      <PropertyRef Name="IdDuenio" />
+    </Key>
+    <Property Name="IdDuenio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="Int32" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Mascota" Relationship="Self.fk_duenio" FromRole="Duenio" ToRole="Mascota" />
+  </EntityType>
+  <EntityType Name="HistorialCitas">
+    <Key>
+      <PropertyRef Name="IdHistorial" />
+    </Key>
+    <Property Name="IdHistorial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMes" Type="Int32" Nullable="false" />
+    <Property Name="CitasProgramadas" Type="Int32" Nullable="false" />
+    <Property Name="CitasRealizadas" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cita" Relationship="Self.fk_historial" FromRole="HistorialCitas" ToRole="Cita" />
+    <NavigationProperty Name="Mes" Relationship="Self.fk_mes" FromRole="HistorialCitas" ToRole="Mes" />
+  </EntityType>
+  <EntityType Name="Mascota">
+    <Key>
+      <PropertyRef Name="IdMascota" />
+    </Key>
+    <Property Name="IdMascota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
+    <Property Name="Especie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdDuenio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cita" Relationship="Self.fk_mascota" FromRole="Mascota" ToRole="Cita" />
+    <NavigationProperty Name="Duenio" Relationship="Self.fk_duenio" FromRole="Mascota" ToRole="Duenio" />
+  </EntityType>
+  <EntityType Name="Mes">
+    <Key>
+      <PropertyRef Name="IdMes" />
+    </Key>
+    <Property Name="IdMes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreMes" Type="Int32" Nullable="false" />
+    <Property Name="Anio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HistorialCitas" Relationship="Self.fk_mes" FromRole="Mes" ToRole="HistorialCitas" />
+  </EntityType>
+  <EntityType Name="Recepcionista">
+    <Key>
+      <PropertyRef Name="IdRecepcionista" />
+    </Key>
+    <Property Name="IdRecepcionista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cita" Relationship="Self.fk_recepcionista" FromRole="Recepcionista" ToRole="Cita" />
+  </EntityType>
+  <EntityType Name="Receta">
+    <Key>
+      <PropertyRef Name="IdReceta" />
+    </Key>
+    <Property Name="IdReceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre_Medicamento" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Diagnostico" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tratamiento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DuracionTratamiento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DuracionMedicamento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdCita" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cita" Relationship="Self.fk_cita" FromRole="Receta" ToRole="Cita" />
+  </EntityType>
+  <Association Name="fk_cita">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="1" />
+    <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IdCita" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="IdCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_doctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="IdDoctor" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdDoctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_historial">
+    <End Role="HistorialCitas" Type="Self.HistorialCitas" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HistorialCitas">
+        <PropertyRef Name="IdHistorial" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdHistorial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_mascota">
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mascota">
+        <PropertyRef Name="IdMascota" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdMascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_recepcionista">
+    <End Role="Recepcionista" Type="Self.Recepcionista" Multiplicity="1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recepcionista">
+        <PropertyRef Name="IdRecepcionista" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdRecepcionista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_duenio">
+    <End Role="Duenio" Type="Self.Duenio" Multiplicity="1" />
+    <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Duenio">
+        <PropertyRef Name="IdDuenio" />
+      </Principal>
+      <Dependent Role="Mascota">
+        <PropertyRef Name="IdDuenio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_mes">
+    <End Role="Mes" Type="Self.Mes" Multiplicity="1" />
+    <End Role="HistorialCitas" Type="Self.HistorialCitas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mes">
+        <PropertyRef Name="IdMes" />
+      </Principal>
+      <Dependent Role="HistorialCitas">
+        <PropertyRef Name="IdMes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ClinicaVeterinariaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cita" EntityType="Self.Cita" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+    <EntitySet Name="Duenio" EntityType="Self.Duenio" />
+    <EntitySet Name="HistorialCitas" EntityType="Self.HistorialCitas" />
+    <EntitySet Name="Mascota" EntityType="Self.Mascota" />
+    <EntitySet Name="Mes" EntityType="Self.Mes" />
+    <EntitySet Name="Recepcionista" EntityType="Self.Recepcionista" />
+    <EntitySet Name="Receta" EntityType="Self.Receta" />
+    <AssociationSet Name="fk_cita" Association="Self.fk_cita">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="Receta" EntitySet="Receta" />
+    </AssociationSet>
+    <AssociationSet Name="fk_doctor" Association="Self.fk_doctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_historial" Association="Self.fk_historial">
+      <End Role="HistorialCitas" EntitySet="HistorialCitas" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_mascota" Association="Self.fk_mascota">
+      <End Role="Mascota" EntitySet="Mascota" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_recepcionista" Association="Self.fk_recepcionista">
+      <End Role="Recepcionista" EntitySet="Recepcionista" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="fk_duenio" Association="Self.fk_duenio">
+      <End Role="Duenio" EntitySet="Duenio" />
+      <End Role="Mascota" EntitySet="Mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_mes" Association="Self.fk_mes">
+      <End Role="Mes" EntitySet="Mes" />
+      <End Role="HistorialCitas" EntitySet="HistorialCitas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

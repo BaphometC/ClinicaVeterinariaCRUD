@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClinicaVeterinariaDBModelStoreContainer" CdmEntityContainer="ClinicaVeterinariaDBEntities">
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+          <ScalarProperty Name="IdDoctor" ColumnName="IdDoctor" />
+          <ScalarProperty Name="IdMascota" ColumnName="IdMascota" />
+          <ScalarProperty Name="IdRecepcionista" ColumnName="IdRecepcionista" />
+          <ScalarProperty Name="IdHistorial" ColumnName="IdHistorial" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="PrecioCita" ColumnName="PrecioCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctor">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="IdDoctor" ColumnName="IdDoctor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Duenio">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Duenio">
+        <MappingFragment StoreEntitySet="Duenio">
+          <ScalarProperty Name="IdDuenio" ColumnName="IdDuenio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialCitas">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.HistorialCitas">
+        <MappingFragment StoreEntitySet="HistorialCitas">
+          <ScalarProperty Name="IdHistorial" ColumnName="IdHistorial" />
+          <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+          <ScalarProperty Name="CitasProgramadas" ColumnName="CitasProgramadas" />
+          <ScalarProperty Name="CitasRealizadas" ColumnName="CitasRealizadas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mascota">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Mascota">
+        <MappingFragment StoreEntitySet="Mascota">
+          <ScalarProperty Name="IdMascota" ColumnName="IdMascota" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Especie" ColumnName="Especie" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="IdDuenio" ColumnName="IdDuenio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mes">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Mes">
+        <MappingFragment StoreEntitySet="Mes">
+          <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+          <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recepcionista">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Recepcionista">
+        <MappingFragment StoreEntitySet="Recepcionista">
+          <ScalarProperty Name="IdRecepcionista" ColumnName="IdRecepcionista" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receta">
+      <EntityTypeMapping TypeName="ClinicaVeterinariaDBModel.Receta">
+        <MappingFragment StoreEntitySet="Receta">
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+          <ScalarProperty Name="Nombre_Medicamento" ColumnName="Nombre_Medicamento" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+          <ScalarProperty Name="Tratamiento" ColumnName="Tratamiento" />
+          <ScalarProperty Name="DuracionTratamiento" ColumnName="DuracionTratamiento" />
+          <ScalarProperty Name="DuracionMedicamento" ColumnName="DuracionMedicamento" />
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

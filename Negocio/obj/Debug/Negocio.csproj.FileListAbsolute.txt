@@ -1,0 +1,15 @@
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Negocio.dll.config
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Negocio.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Entidad.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Entidad.pdb
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\Entidad.dll.config
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\obj\Debug\Negocio.dll
+C:\Users\Bapho\source\repos\ClinicaVeterinaria\Negocio\obj\Debug\Negocio.pdb
