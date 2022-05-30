@@ -32,12 +32,13 @@ namespace ClinicaVeterinaria
                 if (LoginController.validate(rece))
                 {
                     VistaInicial.Show();
+                    this.WindowState = FormWindowState.Minimized;
                 }
                 else
                 {
                     MessageBox.Show("Credenciales NO validas");
                 }
-
+                
             }
             catch
             {

@@ -21,20 +21,22 @@ namespace ClinicaVeterinaria
             InitializeComponent();
         }
 
-        
-        private void VistaPacientes_Load(object sender, EventArgs e)
+        private void refreshDatasource()
         {
-            var Mascotas = MascotaController.getMascota();
+            var Mascotas = MascotaController.getMascotas();
             dgvListaClientes.DataSource = Mascotas;
             dgvListaClientes.Columns["Duenio"].Visible = false;
             dgvListaClientes.Columns["Cita"].Visible = false;
-            
-            
+        }
+        private void VistaPacientes_Load(object sender, EventArgs e)
+        {
+            this.refreshDatasource();
         }
 
         private void btnAgregarMascotaCita_Click(object sender, EventArgs e)
         {
-            FormMascota AgregarMascota = new FormMascota();
+            Action refreshAction = refreshDatasource;
+            FormMascota AgregarMascota = new FormMascota(0, refreshAction);
             AgregarMascota.Show();
         }
 
@@ -44,9 +46,29 @@ namespace ClinicaVeterinaria
             AgregarDuenio.Show();
         }
 
-        private void btnEditarCliente_Click(object sender, EventArgs e)
+        private void btnEditarMascota_Click(object sender, EventArgs e)
         {
+            
+            int rowIndex = dgvListaClientes.CurrentCell.RowIndex;
+            int id = Int32.Parse(dgvListaClientes.Rows[rowIndex]
+                .Cells[0].Value
+                .ToString());
 
+            Action refreshAction = refreshDatasource;
+
+            FormMascota EditarMascota = new FormMascota(id, refreshAction);
+            EditarMascota.Show();        
+        }
+
+        private void btnEliminarCliente_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dgvListaClientes.CurrentCell.RowIndex;
+            int id = Int32.Parse(dgvListaClientes.Rows[rowIndex]
+                .Cells[0].Value
+                .ToString());
+
+            MascotaController.deleteMascota(id);
+            this.refreshDatasource();
         }
     }
 }

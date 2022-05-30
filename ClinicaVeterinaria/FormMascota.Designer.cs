@@ -84,7 +84,7 @@ namespace ClinicaVeterinaria
             this.btnAgregarDueñoMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarDueñoMascota.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDueñoMascota.Image")));
             this.btnAgregarDueñoMascota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarDueñoMascota.Location = new System.Drawing.Point(207, 214);
+            this.btnAgregarDueñoMascota.Location = new System.Drawing.Point(6, 214);
             this.btnAgregarDueñoMascota.Name = "btnAgregarDueñoMascota";
             this.btnAgregarDueñoMascota.Size = new System.Drawing.Size(136, 36);
             this.btnAgregarDueñoMascota.TabIndex = 25;
@@ -128,7 +128,7 @@ namespace ClinicaVeterinaria
             this.btnCancelarMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarMascota.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarMascota.Image")));
             this.btnCancelarMascota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelarMascota.Location = new System.Drawing.Point(349, 214);
+            this.btnCancelarMascota.Location = new System.Drawing.Point(457, 214);
             this.btnCancelarMascota.Name = "btnCancelarMascota";
             this.btnCancelarMascota.Size = new System.Drawing.Size(99, 36);
             this.btnCancelarMascota.TabIndex = 18;
@@ -142,13 +142,14 @@ namespace ClinicaVeterinaria
             this.btnAgregarMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarMascota.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarMascota.Image")));
             this.btnAgregarMascota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAgregarMascota.Location = new System.Drawing.Point(461, 214);
+            this.btnAgregarMascota.Location = new System.Drawing.Point(349, 214);
             this.btnAgregarMascota.Name = "btnAgregarMascota";
             this.btnAgregarMascota.Size = new System.Drawing.Size(90, 36);
             this.btnAgregarMascota.TabIndex = 17;
-            this.btnAgregarMascota.Text = "Agregar";
+            this.btnAgregarMascota.Text = "Guardar";
             this.btnAgregarMascota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregarMascota.UseVisualStyleBackColor = true;
+            this.btnAgregarMascota.Click += new System.EventHandler(this.btnAgregarMascota_Click);
             // 
             // label2
             // 
@@ -208,6 +209,7 @@ namespace ClinicaVeterinaria
             this.Controls.Add(this.gpbFormularioMascota);
             this.Name = "FormMascota";
             this.Text = "FormMascota";
+            this.Load += new System.EventHandler(this.FormMascota_Load);
             this.gpbFormularioMascota.ResumeLayout(false);
             this.gpbFormularioMascota.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEdadMascota)).EndInit();

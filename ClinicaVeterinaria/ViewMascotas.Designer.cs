@@ -30,7 +30,7 @@ namespace ClinicaVeterinaria
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewMascotas));
-            this.btnEditarCliente = new System.Windows.Forms.Button();
+            this.btnEditarMascota = new System.Windows.Forms.Button();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnAgregarDueñoMascota = new System.Windows.Forms.Button();
             this.btnAgregarMascotaCita = new System.Windows.Forms.Button();
@@ -38,32 +38,33 @@ namespace ClinicaVeterinaria
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnEditarCliente
+            // btnEditarMascota
             // 
-            this.btnEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarCliente.Image")));
-            this.btnEditarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditarCliente.Location = new System.Drawing.Point(428, 498);
-            this.btnEditarCliente.Name = "btnEditarCliente";
-            this.btnEditarCliente.Size = new System.Drawing.Size(125, 36);
-            this.btnEditarCliente.TabIndex = 33;
-            this.btnEditarCliente.Text = "Editar Cliente";
-            this.btnEditarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarCliente.UseVisualStyleBackColor = true;
-            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
+            this.btnEditarMascota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarMascota.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarMascota.Image")));
+            this.btnEditarMascota.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditarMascota.Location = new System.Drawing.Point(583, 498);
+            this.btnEditarMascota.Name = "btnEditarMascota";
+            this.btnEditarMascota.Size = new System.Drawing.Size(135, 36);
+            this.btnEditarMascota.TabIndex = 33;
+            this.btnEditarMascota.Text = "Editar Mascota";
+            this.btnEditarMascota.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarMascota.UseVisualStyleBackColor = true;
+            this.btnEditarMascota.Click += new System.EventHandler(this.btnEditarMascota_Click);
             // 
             // btnEliminarCliente
             // 
             this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarCliente.Image")));
             this.btnEliminarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(576, 498);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(420, 498);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(142, 36);
             this.btnEliminarCliente.TabIndex = 32;
             this.btnEliminarCliente.Text = "Eliminar Cliente";
             this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // btnAgregarDueñoMascota
             // 
@@ -100,6 +101,7 @@ namespace ClinicaVeterinaria
             this.dgvListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaClientes.Location = new System.Drawing.Point(12, 12);
             this.dgvListaClientes.Name = "dgvListaClientes";
+            this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaClientes.Size = new System.Drawing.Size(706, 468);
             this.dgvListaClientes.TabIndex = 29;
             // 
@@ -108,7 +110,7 @@ namespace ClinicaVeterinaria
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 587);
-            this.Controls.Add(this.btnEditarCliente);
+            this.Controls.Add(this.btnEditarMascota);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.btnAgregarDueñoMascota);
             this.Controls.Add(this.btnAgregarMascotaCita);
@@ -123,7 +125,7 @@ namespace ClinicaVeterinaria
 
         #endregion
 
-        private System.Windows.Forms.Button btnEditarCliente;
+        private System.Windows.Forms.Button btnEditarMascota;
         private System.Windows.Forms.Button btnEliminarCliente;
         private System.Windows.Forms.Button btnAgregarDueñoMascota;
         private System.Windows.Forms.Button btnAgregarMascotaCita;

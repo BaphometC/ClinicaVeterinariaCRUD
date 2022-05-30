@@ -19,7 +19,7 @@ namespace ClinicaVeterinaria
 
         private void btnRegistrarMascotaCita_Click(object sender, EventArgs e)
         {
-            FormMascota AgregarMascota = new FormMascota();
+            FormMascota AgregarMascota = new FormMascota(0);
             AgregarMascota.Show();
         }
 
